@@ -37,7 +37,7 @@ Compile () {
     echo "=========IN ${mode} MODE..."
 
     echo "=========COMPILING..."
-    g++ -o ${dir}/bin/output.exe -Wall -I library ${dir}/src/*.cpp $debug ; CheckCmdStatus $?
+    g++ -o ${dir}/bin/output.exe -Wall -I library ${dir}/*/*.cpp $debug ; CheckCmdStatus $?
 
     echo "=========SUCCESS!!"
 
@@ -75,7 +75,9 @@ Help () {
 
     echo "=========COMPILE"
     echo "About: Compiles a project"
-    echo "Usage: $tool_name compile project_name"
+    echo "Usage:"
+    echo "Debug: $tool_name compile debug project_name"
+    echo "Release: $tool_name compile release project_name"
     echo "=========CLEAN"
     echo "About: Cleans the project"
     echo "Usage: $tool_name clean project_name"
