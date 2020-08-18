@@ -22,15 +22,31 @@ Clean () {
 
 Compile () {
 
-    dir=$1
+    mode=$1
+    dir=$2
+    debug=""
 
+    if [ $mode == "debug" ]
+    then
+       debug=-g
+    fi  
+    
     echo "=========Creating bin directory"
     mkdir -p ${dir}/bin ; CheckCmdStatus $?
 
+    echo "=========IN ${mode} MODE..."
+
     echo "=========COMPILING..."
-    g++ -o ${dir}/bin/output.exe -Wall -I library ${dir}/src/*.cpp ; CheckCmdStatus $?
+    g++ -o ${dir}/bin/output.exe -Wall -I library ${dir}/src/*.cpp $debug ; CheckCmdStatus $?
 
     echo "=========SUCCESS!!"
+
+    if [ $mode == "debug" ]
+    then
+       echo "=========OPENING DEBUGGER..."
+       gdbgui ${dir}/bin/output.exe ; CheckCmdStatus $?
+    fi  
+
     return 0
 }
 
@@ -77,7 +93,7 @@ Help () {
 
 if [ $1 == "compile" ]
 then
-    Compile $2
+    Compile $2 $3
     exit $?
 fi
 
