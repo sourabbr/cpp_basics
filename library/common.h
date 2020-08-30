@@ -6,6 +6,8 @@
 #include <vector>
 #include <memory>
 #include <iomanip>
+#include <fstream>
+#include <cstring>
 
 using namespace std;
 
