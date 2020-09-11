@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <fstream>
 #include <cstring>
+#include <deque>
 
 using namespace std;
 
