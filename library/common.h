@@ -9,6 +9,9 @@
 #include <fstream>
 #include <cstring>
 #include <deque>
+#include <list>
+#include <cctype>
+#include <limits>
 
 using namespace std;
 
