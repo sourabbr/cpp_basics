@@ -19,5 +19,8 @@
 #define CStrPtr     const char *
 #define String      string
 #define Vector      vector
+#define Int32       int32_t
+#define Int16       int16_t
+#define UInt8       uint8_t
 
 #endif
